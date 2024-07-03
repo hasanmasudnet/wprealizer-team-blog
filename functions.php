@@ -139,8 +139,46 @@ add_action( 'widgets_init', 'wprealizer_team_blog_widgets_init' );
  */
 function wprealizer_team_blog_scripts() {
 	wp_enqueue_style( 'wprealizer-team-blog-style', get_stylesheet_uri(), array(), _S_VERSION );
+
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/linearicons.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/font-awesome.min.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/bootstrap.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/magnific-popup.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/nice-select.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/animate.min.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/owl.carousel.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/jquery-ui.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/main.css');
+	wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css');
+
+    wp_enqueue_script('jquery-3.7.1', get_template_directory_uri() . '/assets/js/jquery-3.7.1.min.js', array(), '3.7.1', true);
+
 	wp_style_add_data( 'wprealizer-team-blog-style', 'rtl', 'replace' );
 
+
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="../../../cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="js/easing.min.js"></script>
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/mn-accordion.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/mail-script.js"></script>
+	<script src="js/main.js"></script>
+
+	wp_enqueue_script( 'wprealizer-team-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wprealizer-team-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wprealizer-team-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wprealizer-team-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wprealizer-team-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wprealizer-team-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'wprealizer-team-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'wprealizer-team-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
