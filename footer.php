@@ -1,70 +1,61 @@
 <footer class="footer-area section-gap">
-<div class="container">
-<div class="row">
-<div class="col-lg-3 col-md-6 single-footer-widget">
-<h4>Top Products</h4>
-<ul>
-<li><a href="#">Managed Website</a></li>
-<li><a href="#">Manage Reputation</a></li>
-<li><a href="#">Power Tools</a></li>
-<li><a href="#">Marketing Service</a></li>
-</ul>
-</div>
-<div class="col-lg-2 col-md-6 single-footer-widget">
-<h4>Quick Links</h4>
-<ul>
-<li><a href="#">Jobs</a></li>
-<li><a href="#">Brand Assets</a></li>
-<li><a href="#">Investor Relations</a></li>
-<li><a href="#">Terms of Service</a></li>
-</ul>
-</div>
-<div class="col-lg-2 col-md-6 single-footer-widget">
-<h4>Features</h4>
-<ul>
-<li><a href="#">Jobs</a></li>
-<li><a href="#">Brand Assets</a></li>
-<li><a href="#">Investor Relations</a></li>
-<li><a href="#">Terms of Service</a></li>
-</ul>
-</div>
-<div class="col-lg-2 col-md-6 single-footer-widget">
-<h4>Resources</h4>
-<ul>
-<li><a href="#">Guides</a></li>
-<li><a href="#">Research</a></li>
-<li><a href="#">Experts</a></li>
-<li><a href="#">Agencies</a></li>
-</ul>
-</div>
-<div class="col-lg-3 col-md-6 single-footer-widget">
-<h4>Instragram Feed</h4>
-<ul class="instafeed d-flex flex-wrap">
-<li><img src="img/i1.jpg" alt></li>
-<li><img src="img/i2.jpg" alt></li>
-<li><img src="img/i3.jpg" alt></li>
-<li><img src="img/i4.jpg" alt></li>
-<li><img src="img/i5.jpg" alt></li>
-<li><img src="img/i6.jpg" alt></li>
-<li><img src="img/i7.jpg" alt></li>
-<li><img src="img/i8.jpg" alt></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom row align-items-center">
-<p class="footer-text m-0 col-lg-8 col-md-12">
-Copyright &copy;<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
-</p>
-<div class="col-lg-4 col-md-12 footer-social">
-<a href="#"><i class="fa fa-facebook"></i></a>
-<a href="#"><i class="fa fa-twitter"></i></a>
-<a href="#"><i class="fa fa-dribbble"></i></a>
-<a href="#"><i class="fa fa-behance"></i></a>
-</div>
-</div>
-</div>
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-3 col-md-6 single-footer-widget">
+            <?php
+               if ( is_active_sidebar( "footer-left" ) ) {
+                  dynamic_sidebar( "footer-left" );
+               }
+            ?>
+         </div>
+         <div class="col-lg-2 col-md-6 single-footer-widget">
+            <?php
+               if ( is_active_sidebar( "footer-middle" ) ) {
+                  dynamic_sidebar( "footer-middle" );
+               }
+            ?>
+         </div>
+         <div class="col-lg-2 col-md-6 single-footer-widget">
+            <?php
+               if ( is_active_sidebar( "footer-middle-right" ) ) {
+                  dynamic_sidebar( "footer-middle-right" );
+               }
+            ?>
+         </div>
+         <div class="col-lg-2 col-md-6 single-footer-widget">
+            <?php
+               if ( is_active_sidebar( "footer-right" ) ) {
+                  dynamic_sidebar( "footer-right" );
+               }
+            ?>
+         </div>
+         <div class="col-lg-3 col-md-6 single-footer-widget">
+            <?php
+               if(is_active_sidebar("footer-gallery")){
+                  dynamic_sidebar("footer-gallery");
+               }
+            ?>
+         </div>
+      </div>
+      <div class="footer-bottom row align-items-center">
+         <p class="footer-text m-0 col-lg-8 col-md-12">
+            <?php print rianblog_copyright_text(); ?>
+         </p>
+         <div class="col-lg-4 col-md-12">
+            <div class="footer-social">
+               <?php
+                  if(is_active_sidebar("footer-social-icon")){
+                     dynamic_sidebar("footer-social-icon");
+                  }
+               ?>
+            </div>
+         </div>
+      </div>
+   </div>
 </footer>
 
 <?php wp_footer(); ?>
 </body>
 </html>
+
+

@@ -18,8 +18,8 @@ while ( $rianblog_fp->have_posts() ) {
       "date"=>get_the_date(),
       "thumbnail"=>get_the_post_thumbnail_url(get_the_ID(),"large"),
       "author"=>get_the_author_meta("display_name"),
-      'author_avatar'=>get_avatar_url(get_the_author_meta("ID")),
-      'cat'=>$categories[mt_rand(0,count($categories)-1)]->name
+      'cat'=>$categories[mt_rand(0,count($categories)-1)]->name,
+      "comments" => get_comments_number()
    );
 }
 
@@ -44,7 +44,7 @@ if ( $rianblog_fp->post_count > 1 ):
                   <ul class="meta">
                      <li><a href="#"><span class="lnr lnr-user"></span><?php echo esc_html($post_data[0]['author']); ?></a></li>
                      <li><a href="#"><span class="lnr lnr-calendar-full"></span><?php echo esc_html($post_data[0]['date']); ?></a></li>
-                     <li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+                     <li><a href="#"><span class="lnr lnr-bubble"></span><?php echo esc_html($post_data[0]['comments']); ?> Comments</a></li>
                   </ul>
                </div>
             </div>
@@ -67,7 +67,7 @@ if ( $rianblog_fp->post_count > 1 ):
                         <ul class="meta">
                            <li><a href="#"><span class="lnr lnr-user"></span><?php echo esc_html($post_data[$i]['author']); ?></a></li>
                            <li><a href="#"><span class="lnr lnr-calendar-full"></span><?php echo esc_html($post_data[$i]['date']); ?></a></li>
-                           <li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+                           <li><a href="#"><span class="lnr lnr-bubble"></span><?php echo esc_html($post_data[$i]['comments']); ?> Comments</a></li>
                         </ul>
                      </div>
                   </div>

@@ -2723,16 +2723,19 @@ div.thumbnail_container .overlay-bg {
   color: #fff;
 }
 
-.footer-area .single-footer-widget .instafeed {
+.footer-area .single-footer-widget .instafeed,
+.footer-area .single-footer-widget .gallery {
   margin: -5px;
 }
 
-.footer-area .single-footer-widget .instafeed li {
-  overflow: hidden;
+.footer-area .single-footer-widget .instafeed li,
+.footer-area .single-footer-widget .gallery .gallery-item {
+  
   width: 25%;
 }
 
-.footer-area .single-footer-widget .instafeed li img {
+.footer-area .single-footer-widget .instafeed li img,
+.footer-area .single-footer-widget .gallery .gallery-item img {
   margin: 5px;
 }
 
@@ -2788,6 +2791,10 @@ div.thumbnail_container .overlay-bg {
   z-index: 9;
 }
 
-.single-top-post:last-child{
+.single-top-post:last-child {
   margin-top: 8px;
+}
+
+.logo-left a {
+  color: #000;
 }
