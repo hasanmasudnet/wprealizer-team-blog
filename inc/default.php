@@ -26,7 +26,7 @@ add_filter('excerpt_length', 'blogpress_excerpt');
 
 function custom_excerpt($content)
 {
-    return wp_trim_words($content, 12, '...');
+    return wp_trim_words($content, 12, '.');
 }
 
 // Search

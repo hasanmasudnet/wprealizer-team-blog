@@ -137,7 +137,7 @@
                                         </ul>
                                         <p class="excert">
                                             <?php echo the_excerpt(); ?>
-                                        </p>
+                                        </p> <a href="<?php the_permalink(); ?>" class="see-more-button">See More</a>
                                     </div>
                                 </div>
                             <?php endwhile;
@@ -282,7 +282,7 @@
                                             </ul>
                                             <p class="excert">
                                                 <?php echo custom_excerpt(get_the_excerpt()); ?>
-                                            </p>
+                                            </p> <a href="<?php the_permalink(); ?>" class="see-more-button">See More</a>
                                         </div>
                                     </div>
                             <?php

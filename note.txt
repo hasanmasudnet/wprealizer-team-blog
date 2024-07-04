@@ -3,3 +3,22 @@ https://preview.colorlib.com/theme/magazine/index.html
 2. Jahid
 3. Masud
 4. Utpal
+
+
+
+
+
+
+
+----------------------------- Jahid Hassan -------------------------------
+
+Date: 04 July 2024
+
+1. Related Posts Functionality 
+-- Display related posts based on categories.
+2. Excerpt Customization 
+-- Customize the excerpt to remove [...] and add a "See more" button.
+3. Search Functionality 
+-- Improve search results relevance and display.
+4. Footer Widgets 
+-- Enhance the footer area with additional widgets.

@@ -2793,3 +2793,16 @@ div.thumbnail_container .overlay-bg {
   position: relative;
   z-index: 9;
 }
+
+// Dev Jahid
+.see-more-button {
+  display: inline-block;
+  margin-top: 10px;
+  color: #000000;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  font-weight: 400;
+  &:hover {
+    color: #f6214b;
+  }
+}
