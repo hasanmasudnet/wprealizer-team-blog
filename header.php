@@ -57,7 +57,8 @@
                     ?>
                 </nav>
                 <div class="navbar-right">
-                    <form class="Search">
+                    <?php get_search_form(); ?>
+                    <!-- <form class="Search">
                         <input type="text" class="form-control Search-box" name="Search-box" id="Search-box" placeholder="Search">
                         <label for="Search-box" class="Search-box-label">
                             <span class="lnr lnr-magnifier"></span>
@@ -65,7 +66,7 @@
                         <span class="Search-close">
                             <span class="lnr lnr-cross"></span>
                         </span>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>

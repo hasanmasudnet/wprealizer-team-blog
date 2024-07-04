@@ -12,7 +12,9 @@
                 <?php
                 $top_posts_query = new WP_Query(array(
                     'posts_per_page' => 3,
+                    'category__not_in' => array(7),
                     'offset' => 0
+
                 ));
                 if ($top_posts_query->have_posts()) : ?>
                     <?php $counter = 0;
@@ -49,11 +51,11 @@
                                 <div class="col-lg-4 top-post-right">
                                 <?php endif; ?>
 
-                                <div class="single-top-post <?php echo $counter == 3 ? 'mt-10' : ''; ?>">
+                                <div class="single-top-post <?php echo $counter == 3 ? 'mt-0' : ''; ?>">
                                     <div class="feature-image-thumb relative">
                                         <div class="overlay overlay-bg"></div>
                                         <?php if (has_post_thumbnail()) : ?>
-                                            <?php the_post_thumbnail('full', ['class' => 'img-fluid']); ?>
+                                            <?php the_post_thumbnail('blogpress-square', ['class' => 'img-fluid']); ?>
                                         <?php endif; ?>
                                     </div>
                                     <div class="top-post-details">
@@ -99,11 +101,14 @@
                     <div class="latest-post-wrap">
                         <h4 class="cat-title">Latest News</h4>
                         <?php
+                        $news_cat = 'news';
+
                         $latest_args = array(
-                            'post_type' => 'post',
+                            'category_name' => $news_cat,
                             'posts_per_page' => 4,
-                            'offset' => 3
+                            'orderby' => 'date',
                         );
+
                         $latest_post_query = new WP_Query($latest_args);
 
                         if ($latest_post_query->have_posts()) :
@@ -150,6 +155,7 @@
 
                     <div class="popular-post-wrap">
                         <h4 class="title">Popular Posts</h4>
+
                         <div class="feature-post relative">
                             <div class="feature-img relative">
                                 <div class="overlay overlay-bg"></div>
@@ -227,81 +233,66 @@
                     <div class="relavent-story-post-wrap mt-30">
                         <h4 class="title">Relavent Stories</h4>
                         <div class="relavent-story-list-wrap">
-                            <div class="single-relavent-post row align-items-center">
-                                <div class="col-lg-5 post-left">
-                                    <div class="feature-img relative">
-                                        <div class="overlay overlay-bg"></div>
-                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/r1.jpg" alt>
+                            <?php
+                            $current_post_id = get_the_ID();
+
+                            $categories = get_the_category($current_post_id);
+
+                            $category_ids = array();
+
+                            foreach ($categories as $category) {
+                                $category_ids[] = $category->term_id;
+                            }
+
+                            $args = array(
+                                'post_type' => 'post',
+                                'posts_per_page' => 4,
+                                'post__not_in' => array($current_post_id),
+                                'category__in' => $category_ids,
+                                'orderby' => 'rand',
+                            );
+
+                            $related_query = new WP_Query($args);
+
+
+                            if ($related_query->have_posts()) :
+                                while ($related_query->have_posts()) :
+                                    $related_query->the_post();
+                            ?>
+                                    <div class="single-relavent-post row align-items-center">
+                                        <div class="col-lg-5 post-left">
+                                            <div class="feature-img relative">
+                                                <div class="overlay overlay-bg"></div>
+                                                <?php if (has_post_thumbnail()) : ?>
+                                                    <?php the_post_thumbnail('full', ['class' => 'img-fluid']); ?>
+                                                <?php endif; ?>
+                                            </div>
+                                            <ul class="tags">
+                                                <li><a href="<?php the_permalink(); ?>"><?php the_category(); ?></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-7 post-right">
+                                            <a href="<?php the_permalink(); ?>">
+                                                <h4><?php the_title(); ?></h4>
+                                            </a>
+                                            <ul class="meta">
+                                                <li><a href="#"><span class="lnr lnr-user"></span><?php the_author(); ?></a></li>
+                                                <li><a href="#"><span class="lnr lnr-calendar-full"></span><?php echo get_the_date(); ?></a></li>
+                                                <li><a href="#"><span class="lnr lnr-bubble"></span><?php comments_number(); ?></a></li>
+                                            </ul>
+                                            <p class="excert">
+                                                <?php echo custom_excerpt(get_the_excerpt()); ?>
+                                            </p>
+                                        </div>
                                     </div>
-                                    <ul class="tags">
-                                        <li><a href="#">Lifestyle</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-7 post-right">
-                                    <a href="image-post.html">
-                                        <h4>A Discount Toner Cartridge Is
-                                            Better Than Ever.</h4>
-                                    </a>
-                                    <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span>Mark wiens</a></li>
-                                        <li><a href="#"><span class="lnr lnr-calendar-full"></span>03 April, 2018</a></li>
-                                        <li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
-                                    </ul>
-                                    <p class="excert">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="single-relavent-post row align-items-center">
-                                <div class="col-lg-5 post-left">
-                                    <div class="feature-img relative">
-                                        <div class="overlay overlay-bg"></div>
-                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/r2.jpg" alt>
-                                    </div>
-                                    <ul class="tags">
-                                        <li><a href="#">Science</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-7 post-right">
-                                    <a href="image-post.html">
-                                        <h4>A Discount Toner Cartridge Is
-                                            Better Than Ever.</h4>
-                                    </a>
-                                    <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span>Mark wiens</a></li>
-                                        <li><a href="#"><span class="lnr lnr-calendar-full"></span>03 April, 2018</a></li>
-                                        <li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
-                                    </ul>
-                                    <p class="excert">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="single-relavent-post row align-items-center">
-                                <div class="col-lg-5 post-left">
-                                    <div class="feature-img relative">
-                                        <div class="overlay overlay-bg"></div>
-                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/r3.jpg" alt>
-                                    </div>
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-7 post-right">
-                                    <a href="image-post.html">
-                                        <h4>A Discount Toner Cartridge Is
-                                            Better Than Ever.</h4>
-                                    </a>
-                                    <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span>Mark wiens</a></li>
-                                        <li><a href="#"><span class="lnr lnr-calendar-full"></span>03 April, 2018</a></li>
-                                        <li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
-                                    </ul>
-                                    <p class="excert">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                                    </p>
-                                </div>
-                            </div>
+                            <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            else :
+                                echo 'No related posts found.';
+                            endif;
+                            ?>
+
                         </div>
                     </div>
 
