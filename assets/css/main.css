@@ -2792,9 +2792,28 @@ div.thumbnail_container .overlay-bg {
 }
 
 .single-top-post:last-child {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .logo-left a {
   color: #000;
+}
+
+.ads-banner img{
+  width: 100%;
+}
+
+.search-page-content .Search{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-page-content .Search .lnr{
+  color: #000;
+}
+
+.search-page-content .Search-box-label, .search-page-content .Search-close {
+  right: 50%;
+  width: 0;
+  transform: translateX(-50%);
 }

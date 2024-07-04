@@ -18,7 +18,7 @@ while ( $rianblog_fp->have_posts() ) {
       "date"=>get_the_date(),
       "thumbnail"=>get_the_post_thumbnail_url(get_the_ID(),"large"),
       "author"=>get_the_author_meta("display_name"),
-      'cat'=>$categories[mt_rand(0,count($categories)-1)]->name,
+      'cat'=>$categories[0]->name,
       "comments" => get_comments_number()
    );
 }

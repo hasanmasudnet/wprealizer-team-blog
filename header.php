@@ -17,18 +17,19 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-6 header-top-left no-padding">
-                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                     </ul>
+                     <?php
+                        if(is_active_sidebar("header-social-icon")){
+                           dynamic_sidebar("header-social-icon");
+                        }
+                     ?>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-6 header-top-right no-padding">
-                     <ul>
-                        <li><a href="tel:+440 012 3654 896"><span class="lnr lnr-phone-handset"></span><span>+440 012 3654 896</span></a></li>
-                        <li><a href="https://preview.colorlib.com/cdn-cgi/l/email-protection#ef9c9a9f9f809d9baf8c8083809d83868dc18c8082"><span class="lnr lnr-envelope"></span><span><span class="__cf_email__" data-cfemail="f3808683839c8187b3909c9f9c819f9a91dd909c9e">[email&#160;protected]</span></span></a></li>
-                     </ul>
+                     
+                     <?php
+                        if(is_active_sidebar("header-address")){
+                           dynamic_sidebar("header-address");
+                        }
+                     ?>
                   </div>
                </div>
             </div>
@@ -46,7 +47,12 @@
                      ?>
                   </div>
                   <div class="col-lg-8 col-md-8 col-sm-12 logo-right no-padding ads-banner">
-                     <img class="img-fluid" src="<?php echo get_template_directory_uri();?>/assets/img/banner-ad.jpg" alt>
+                     
+                     <?php
+                        if(is_active_sidebar("header-cta")){
+                           dynamic_sidebar("header-cta");
+                        }
+                     ?>
                   </div>
                </div>
             </div>

@@ -3,3 +3,22 @@ https://preview.colorlib.com/theme/magazine/index.html
 2. Jahid
 3. Masud
 4. Utpal
+
+
+
+
+Rian:
+
+1. header:
+---- It has a dynamic logo. The option allows the user to add a logo.
+No issue then if he removes the logo. The blog name is automatically added there.
+---- The menu and search are dynamic.
+We have widgets for the CTA, social icon, and address.
+
+2. Footer: 
+---- Copyright load from function. Lastly, each contains have widgets.
+
+3. Hero:
+---- User can't load more than three post.
+---- By selecting "Featured" for "Show in Hero," users can choose from any three posts. (https://prnt.sc/yJYtTpKWPmIK)
+---- In this post all info comes dynamically.

@@ -113,6 +113,33 @@ function rianblog_widgets() {
         'before_title'  => '<h4>',
         'after_title'   => '</h4>',
     ) );
+    register_sidebar( array(
+        'name'          => __( 'Header Social Icon', 'rianblog' ),
+        'id'            => 'header-social-icon',
+        'description'   => __( 'Widgets in this area will be shown on header section.', 'rianblog' ),
+        'before_widget' => '<div id="%1$s" class=" %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Header Address Info', 'rianblog' ),
+        'id'            => 'header-address',
+        'description'   => __( 'Widgets in this area will be shown on header section.', 'rianblog' ),
+        'before_widget' => '<div id="%1$s" class=" %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Header CTA Image', 'rianblog' ),
+        'id'            => 'header-cta',
+        'description'   => __( 'Widgets in this area will be shown on header section.', 'rianblog' ),
+        'before_widget' => '<div id="%1$s" class=" %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
 
 }
 
